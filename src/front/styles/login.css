@@ -1,0 +1,39 @@
+.background img{
+    width: 100%;
+    height:70%;
+    object-fit:contain;
+}
+.container-xxl{
+    background-color: rgba(128, 128, 128, 0.322);
+    position: absolute;
+    top: 55%; 
+    left: 20%;
+    transform: translate(-50%, -50%) ;
+    text-align: center;
+    width:33%;
+    height: 66%;
+    border-radius: 5%;
+}
+.logtext{
+    color:white;
+    font-size: 60px;
+    font-family:'Courier New', Courier, monospace
+}
+.redirect{
+color: rgb(25,135,84);
+}
+.form-floating input{
+    border-radius:5%;
+    background-color:rgba(128, 128, 128, 0.322) ;
+}
+
+.form-floating label{
+    color:rgba(73, 72, 72, 0.712) ;
+}
+
+.info-signup{
+margin-top:20px;
+margin-bottom: 0px;
+padding:0px;
+color:white;
+}

@@ -1,0 +1,55 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+.signImage img{
+    width: 100vw;
+    height: 100vh;  
+    
+}
+.contenido{
+    width: 19rem;
+    height: 29rem;
+    position:absolute;
+    border-radius: 5px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50% );
+    color:white;
+    background-color:rgba(0, 0, 0, 0.877);
+    
+}
+.content-image{
+    width: auto;
+    z-index: -2;
+    
+
+}
+.imagen-form{
+    width: 300px;
+    height: 170px;
+    position:absolute;
+    border-radius: 5px;
+    object-fit:fill;
+    z-index: -1;
+    top:15%;
+    left:11%;
+    transform: translate(-10%, -40% ); 
+    
+}
+
+.headercontent h3{
+    font-size: 40px;
+    color: rgb(248, 246, 246);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    margin-top: 20px;
+    text-shadow: -1px 0 #727070ce, 0 1px #727070ce, 1px 0 #727070ce, 0 -1px #727070ce;
+}
+
+
+.btn{
+    color:white;
+    border-color: white;
+}
+form{
+    top:23%;
+    position:relative;
+}

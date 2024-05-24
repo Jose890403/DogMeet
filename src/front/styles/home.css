@@ -1,7 +1,61 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.buttons{
+    display:flex;
+    margin-left:20%;
+    top:27%;
+    position: absolute;
+}
+.buttons .btn{
+    border: none;          /* Quitar el borde */
+    background: none;      /* Quitar el fondo */
+    padding: 0;            /* Quitar el relleno interno */
+    margin: 0;             /* Quitar el margen externo */
+    box-shadow: none;      /* Quitar la sombra */
+    text-decoration: underline; /* Poner decoraciones del texto*/
+    color: inherit;        /* Heredar el color del texto del elemento padre */
+    font: inherit;         /* Heredar la fuente del elemento padre */
+    cursor: pointer;       /* Mostrar el cursor de mano */
+    outline: none; 
+    color: rgb(248, 243, 243);
+    text-shadow: -1px 0 #000000ce, 0 1px #000000ce, 1px 0 #000000ce, 0 -1px #000000ce;
+    font-size: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    padding: 5px;
+}
+.separator{
+    color:rgb(0, 0, 0);
+    font-size: 30px;
+    padding: 5px;
+    text-shadow: -1px 0 #000000ce, 0 1px #000000ce, 1px 0 #000000ce, 0 -1px #000000ce;
+}
+.nameLog{
+    position: absolute;
+    top: 20%; 
+    left: 28%;
+    transform: translate(-50%, -50%);
+    color:rgb(255, 255, 255); 
+    text-shadow: -1px 0 #000000ce, 0 1px #000000ce, 1px 0 #000000ce, 0 -1px #000000ce;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 5rem;
+}
+.logo{
+    position: absolute;
+    top: 30%; 
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: 350px;
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+}
+.video-background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+}
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
