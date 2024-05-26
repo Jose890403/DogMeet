@@ -22,7 +22,7 @@ export const Login=()=>{
     }
     useEffect(()=>{
         if(store.isLoggedIn === true){
-            navigate('/private')
+            navigate('/inicio')
         }
     },[store.isLoggedIn])
 

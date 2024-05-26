@@ -3,9 +3,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			isLoggedIn:false,
-            
+            post:[]
 		},
         suggestions:[],
+       
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
@@ -35,6 +36,10 @@ setLogout:()=>{
 	setStore({isLoggedIn:false})
 	localStorage.removeItem('token');
 	
+},
+
+setPost:()=>{
+	setStore({post:true})
 },
 
 
@@ -97,6 +102,7 @@ register_User: (name,email, password) =>{
             console.log("Error fetching posts:", error);
         }
     },
+
     createPost: async (img, bodytext) => {
         try {
             const response = await fetch(`${process.env.BACKEND_URL}/api/post`, {
@@ -104,12 +110,20 @@ register_User: (name,email, password) =>{
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ img, bodytext })
             });
+
             const data = await response.json();
-            getActions().getPosts(); // Refresh posts
+            getActions().getPosts(); 
+            console.log(data)
             setStore({ message: data.msg });
+            getActions().setPost();
+
+            return data;
         } catch (error) {
             console.log("Error creating post:", error);
+            throw error;
+            
         }
+        
     },
       
     updatePost: async (postId, img, bodytext) => {
@@ -198,6 +212,30 @@ register_User: (name,email, password) =>{
                     console.log("Error creating suggestion:", error);
                 }
             },
+
+    /* flux de maikel ejemplo */
+
+    handle_create_post: async (Post) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`${process.env.BACKEND_URL}/api/post`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({Post})
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            onFormSubmit(data); // Actualiza el estado o haz algo con los datos recibidos
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    },
+    
     /* ------------API EXTERNA DE DOG API ------------* */
     
 
