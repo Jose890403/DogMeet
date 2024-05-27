@@ -1,12 +1,16 @@
 const getState = ({ getStore, getActions, setStore }) => {
-
+    
 	return {
 		store: {
 			isLoggedIn:false,
-            post:[]
+            posts: [],
+            comments: [],
+            likes: [],
+            suggestions: [],
+            message: null,
 		},
-        suggestions:[],
-       
+        
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
@@ -40,6 +44,7 @@ setLogout:()=>{
 
 setPost:()=>{
 	setStore({post:true})
+    
 },
 
 
@@ -92,38 +97,48 @@ register_User: (name,email, password) =>{
     })
     .catch(error => console.log('Error parcero', error))
 
-}, 
-    getPosts: async () => {
-        try {
-            const response = await fetch(`${process.env.BACKEND_URL}/api/post`);
-            const data = await response.json();
-            setStore({ posts: data.img });
-        } catch (error) {
-            console.log("Error fetching posts:", error);
-        }
-    },
+},
 
-    createPost: async (img, bodytext) => {
-        try {
-            const response = await fetch(`${process.env.BACKEND_URL}/api/post`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ img, bodytext })
-            });
+// esto me esta dando un bucle de puras peticiones
+getPosts: async () => {
+    console.log("prueba")
+    
+    try {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/post`);
+        const posts = await response.json();
+        console.log(posts)
+        setStore({posts});  // Asegúrate de que 'posts' es un array de posts
+    } catch (error) {
+        console.log("Error fetching posts:", error);
+    }
+},
+// se crea el post pero no se ve reflejado en el componenente inicio
 
-            const data = await response.json();
-            getActions().getPosts(); 
-            console.log(data)
-            setStore({ message: data.msg });
-            getActions().setPost();
+createPost: async (img, bodytext) => {
+    console.log(bodytext)
+    try {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/post`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ img, bodytext })
+        });
 
-            return data;
-        } catch (error) {
-            console.log("Error creating post:", error);
-            throw error;
-            
-        }
-        
+        const data = await response.json();
+        await getActions().getPosts();  
+        setStore({ message: data.msg });
+        getActions().setPost();
+
+        return data;
+    } catch (error) {
+        console.log("Error creating post:", error);
+        throw error;
+    }
+},
+
+setPost: () => {
+    setStore({ post: true });
+},
+
     },
       
     updatePost: async (postId, img, bodytext) => {
@@ -241,5 +256,5 @@ register_User: (name,email, password) =>{
 
     }
 }
-}
+
 export default getState;

@@ -1,15 +1,9 @@
-import React, { useContext, useEffect  } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
 
 export const Home = () => {
-	const {store, actions} =useContext(Context);
-	
-	useEffect(() => {
-		actions.getSuggestions();
-	  }, [actions]);
 	
 	return (
 		<div className="text-center">

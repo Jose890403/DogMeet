@@ -1,19 +1,29 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
+
 export const Inicio = () => {
-	const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
 
+    useEffect(() => {
+        actions.getPosts();  
+    }, []);
 
+    console.log(store.posts)
     return (
         <div className="container suggestions-container">
             <h1>Post from Users</h1>
             <ul className="list-group suggestions-list">
-                {store.post?.map((post, index) => (
-                    <li key={index} className="list-group-item suggestion-item">
-                        {post.post}
-                    </li>
-                ))}
+                {store.posts.bodytext?.length > 0 ? (
+                    store.posts.bodytext?.reverse().map((post, index) => (
+                        <li key={index} className="list-group-item suggestion-item">
+                            <p>{post.bodytext}</p>
+                            {post.img && <img src={post.img} style={{width:"300px", maxHeight:"300px"}} alt="Post" />}
+                        </li>
+                    ))
+                ) : (
+                    <li className="list-group-item suggestion-item">No posts available</li>
+                )}
             </ul>
         </div>
-    )
+    );
 };
