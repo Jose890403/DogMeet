@@ -67,16 +67,4 @@ class Like (db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Suggestion (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    suggestion = db.Column(db.String)
-    user = db.relationship('User', backref='Suggestion', lazy=True)
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "suggestion": self.suggestion,
-            # do not serialize the password, its a security breach
-        }
 

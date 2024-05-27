@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Post, Comment, Like, Suggestion
+from api.models import db, User, Post, Comment, Like
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token
@@ -125,36 +125,9 @@ def handle_create_like():
 
 #-------------CREACIONDE UNA SUGERANCIA-----------------
 
-@api.route('/suggestion', methods=['POST'])
-def handle_create_suggestion():
-    data = request.json
-  
-    new_suggestion = Suggestion(suggestion=data['suggestion'])
-    db.session.add(new_suggestion)
-    db.session.commit()
-    response_body = {
-        "user": {
-            "id": new_suggestion.id,
-            "suggestion": new_suggestion.suggestion,
-        },
-        "msg": "otra vez la mierda de copilot"
-    }
-    return jsonify(response_body), 200
-
 #-----------------CREACION DE API`S DE TIPO GET----------------------
 #-------------TRAER TODAS LAS SUGERIAS --------------------------
-@api.route('/suggestion', methods=['GET'])
-def handle_get_suggestion():
-    users = Suggestion.query.all()
-    users_serialized = []
-    for suggestion in users:
-        users_serialized.append(suggestion.serialize())
-    
-    response_body = {
-        "suggestion": users_serialized
-    }
 
-    return jsonify(response_body), 200
 #-------------TRAER TODAS LAS PUBLICACIONES-----------
 
 @api.route('/post', methods=['GET'])
@@ -163,7 +136,6 @@ def handle_get_post():
     users_serialized = []
     for post in users:
         users_serialized.append(post.serialize())
-
     response_body = {
         "img": users_serialized,
         "bodytext":users_serialized
