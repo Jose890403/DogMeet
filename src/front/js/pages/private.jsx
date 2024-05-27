@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../styles/private.css";
 
 export const Private = () => {
@@ -9,18 +9,20 @@ export const Private = () => {
     const [bodytext, setBodytext] = useState("");
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (store.posts === true) {
-            navigate('/inicio');
-        }
-    }, [store.post]); 
+    const [variableOpacidad, setVariableOpacidad] = useState(0);
 
     const handleSubmit = e => {
         e.preventDefault();
         actions.createPost(img, bodytext);
         setImg("");
         setBodytext("");
+        setVariableOpacidad(1)
+
+        
+        setTimeout(() => {
+            navigate('/inicio'); 
+            setVariableOpacidad(0)
+        }, 5000);
     };
 
     return (
@@ -59,9 +61,9 @@ export const Private = () => {
                         />
                     </label>
                 </div>
-                <Link to="/inicio">
                 <button type="submit" className="submit-button">Enviar</button>
-                </Link>
+                <img src="https://media4.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b9529nyceqa63ho2rdvjzychrakphhu91zfoy2kaghvo&ep=v1_gifs_search&rid=200w.gif&ct=g" style={{opacity: variableOpacidad}}/>
+
             </form>
         </div>
     );

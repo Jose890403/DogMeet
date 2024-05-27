@@ -10,11 +10,11 @@ export const Inicio = () => {
 
     console.log(store.posts)
     return (
-        <div className="container suggestions-container">
+        <div className="container suggestions-container"  style={{width:"400px"}}>
             <h1>Post from Users</h1>
             <ul className="list-group suggestions-list">
                 {store.posts.bodytext?.length > 0 ? (
-                    store.posts.bodytext?.reverse().map((post, index) => (
+                    store.posts.bodytext?.map((post, index) => (
                         <li key={index} className="list-group-item suggestion-item">
                             <p>{post.bodytext}</p>
                             {post.img && <img src={post.img} style={{width:"300px", maxHeight:"300px"}} alt="Post" />}
