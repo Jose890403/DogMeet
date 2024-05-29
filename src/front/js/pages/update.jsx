@@ -1,19 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 import "../../styles/private.css";
 
-export const Private = () => {
+
+export const Update = () => {
     const { store, actions } = useContext(Context);
     const [img, setImg] = useState("");
     const [bodytext, setBodytext] = useState("");
+    console.log(store)
+    const params = useParams();
+    const postId = params.postId
+    console.log(postId)
 
     const navigate = useNavigate();
     const [variableOpacidad, setVariableOpacidad] = useState(0);
 
     const handleSubmit = e => {
         e.preventDefault();
-        actions.createPost(img, bodytext);
+        actions.updatePost(postId, img, bodytext);
         setImg("");
         setBodytext("");
         setVariableOpacidad(1)
@@ -24,7 +29,20 @@ export const Private = () => {
             setVariableOpacidad(0)
         }, 5000);
     };
+    useEffect(()=>{
+		actions.getSinglePost(postId)
+	},[])
 
+    useEffect(()=>{ 
+        if (store.post){
+            setBodytext(store.post?.bodytext?.bodytext)
+            setImg(store.post?.bodytext?.img)
+            console.log(store.post.bodytext)
+        }
+		
+	},[store.post])
+    
+    
     return (
         <div className="content">
             <form onSubmit={handleSubmit} className="form-container">

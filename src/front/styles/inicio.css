@@ -1,49 +1,100 @@
-.card {
-    background-color: rgba(236, 234, 234, 0.5); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px; 
-    border-radius: 8px; 
-    width: 35rem; 
-    text-align: center;
-    justify-items: center;
-    align-items: center;  
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-    
-    
-    .card-title {
-      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      color: #4C5958; 
-    }
-    
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.post {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; 
+  background-color: #fff;
+  padding: 20px; 
+}
+
+.list-group {
+  width: 400px;
+  margin: 0 auto; 
+}
+
+.imagen-post img {
+  display: block; 
+  margin: 0 auto; 
+  width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.post-BodyText {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: #e74c3c;
+  transition: fill 0.3s ease;
+}
+
+.heart-button:active .heart-icon {
+  fill: #c0392b;
+  transform: scale(1.2);
+}
+
+.heart-button:focus {
+  outline: none;
+}
+
+.boton-ini {
+  background-color: #c0392b;
+  width: auto;
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px; 
+  margin-right: 10px; 
   
-    .card-img-top {
-      border-radius: 5px; 
-      margin-bottom: 50px; 
-    }
-    
-   
-    .card-text {
-      font-family: 'Times New Roman', serif; 
-      color: #4B3B2B; 
-    }
-    
-    
-    .btn-primary {
-      background-color: #4C5958; 
-      border-color: #4C5958; 
-      font-family: 'Arial', sans-serif; 
-  }
+}
+.botones{
+  margin-left:35%;
+  margin-bottom: 23px;
+  flex-wrap: nowrap;
   
-  .btn-primary:hover {
-      background-color: #3E4F4D; 
-      border-color: #3E4F4D; 
-  }
+}
+.post-text {
+  display: block;
+  text-align: center;
+  margin-left: 33%;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 50px;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 14ch;
   
-  .btn-primary .fas.fa-dog {
-      margin-right: 5px; /* Espacio entre el icono y el texto */
-  }
-    
+  animation: typing 2s steps(14), blink .5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 14ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+

@@ -6,7 +6,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-light bg-light" style={{backgroundColor: "#8d8c8c"}}>
-			<div className="container">
+			<div className="container-fluid">
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
 				</Link>
@@ -18,6 +18,13 @@ export const Navbar = () => {
 				
 				<Link to="/private">
 						<button className="btn btn-primary">Post</button>
+				</Link>
+
+				<Link to="/suggestion">
+						<button className="btn btn-primary">Suggestion</button>
+				</Link>
+				<Link to="/api">
+						<button className="btn btn-primary">Api</button>
 				</Link>
 
 

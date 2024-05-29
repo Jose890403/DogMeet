@@ -2,10 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Post, Comment, Like
+from api.models import db, User, Post, Comment, Suggestion
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
+
 
 api = Blueprint('api', __name__)
 
@@ -105,30 +106,7 @@ def handle_create_comment():
     }
     return jsonify(response_body), 200
 
-#------------CREACION DE UN LIKE -----------------------
-@api.route('/like', methods=['POST'])
-def handle_create_like():
-    data = request.json
-    if 'like' not in data:
-        return jsonify({"msg": "Missing data"}), 400
-    new_like = Like(like=data['like'])
-    db.session.add(new_like)
-    db.session.commit()
-    response_body = {
-        "user": {
-            "id": new_like.id,
-            "like": new_like.like,
-        },
-        "msg": "otra vez la mierda de copilot"
-    }
-    return jsonify(response_body), 200
-
-#-------------CREACIONDE UNA SUGERANCIA-----------------
-
-#-----------------CREACION DE API`S DE TIPO GET----------------------
-#-------------TRAER TODAS LAS SUGERIAS --------------------------
-
-#-------------TRAER TODAS LAS PUBLICACIONES-----------
+#------------TRAER TODOS LOS POST -----------------------
 
 @api.route('/post', methods=['GET'])
 def handle_get_post():
@@ -143,6 +121,21 @@ def handle_get_post():
 
     return jsonify(response_body), 200
 
+#-------TRAER UN POST-------------
+@api.route('/post/<int:id>', methods=['GET'])
+def get_post_by_id(id):
+    post = Post.query.get(id)
+    if post is None:
+        return jsonify({"error": "Post not found"}), 404
+    
+    response_body = {
+        "img": post.serialize(),
+        "bodytext": post.serialize()
+    }
+
+    return jsonify(response_body), 200
+
+    return jsonify(response_body), 200
 
 
 #----------ACTUALIZAR UN POST-------------------------------
@@ -163,20 +156,23 @@ def handle_update_post(post_id):
     return jsonify({"msg": "Post updated successfully", "post": post.serialize()}), 200
 
 #----------ELIMINAR UN POST---------------------------------
-@api.route('/post/<int:post_id>', methods=['DELETE'])
-def handle_delete_post(post_id):
-    post = Post.query.get(post_id)
-    if not post:
-        return jsonify({"msg": "Post not found"}), 404
-    
-    db.session.delete(post)
-    db.session.commit()
+@api.route('/post/<int:postId>', methods=['DELETE'])
+def deletePost(postId):
+    try:
+        post = Post.query.get(postId)
+        if not post:
+            raise APIException("POST NO ENCONTRADO", status_code= 404)
+        db.session.delete(post)
+        db.session.commit()
+        response_body ={
+            "msg":"POST ELIMINADO CORRECTAMENTE"
+        }
 
-    return jsonify({"msg": "Post deleted"}), 200
+        return jsonify(response_body), 200
+    except Exception as e:
+        print("Error:", str(e))
 
-
-
-
+        raise APIException("Error al eliminar voluntario", status_code=500)
 #--------------------------------------------------------
 
 @api.route('/wipeall', methods=['GET'])
@@ -188,3 +184,32 @@ def database_wipe():
     except Exception as e:
         return "mec", 500
     return "ok", 200
+
+
+#-------------CREACIONDE UNA SUGERANCIA-----------------
+@api.route('/suggestion', methods=['POST'])
+def handle_create_suggestion():
+    data = request.json
+    new_suggestion = Suggestion(suggestion=data['suggestion'])
+    db.session.add(new_suggestion)
+    db.session.commit()
+    response_body = {
+        "user": {
+            "id": new_suggestion.id,
+            "suggestion": new_suggestion.suggestion,
+        },
+        "msg": "otra vez la mierda de copilot"
+    }
+    return jsonify(response_body), 200
+
+#-------------TRAER TODAS LAS SUGERIAS --------------------------
+@api.route('/suggestion', methods=['GET'])
+def handle_get_suggestion():
+    users = Suggestion.query.all()
+    users_serialized = []
+    for suggestion in users:
+        users_serialized.append(suggestion.serialize())
+    response_body = {
+        "suggestion": users_serialized
+    }
+    return jsonify(response_body), 200
