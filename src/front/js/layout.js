@@ -15,6 +15,9 @@ import { Login } from "./pages/login.jsx";
 import { SignUp } from "./pages/signup.jsx";
 import { Private } from "./pages/private.jsx";
 import { Inicio } from "./pages/inicio.jsx";
+import { Update } from "./pages/update.jsx";
+import Suggestions from "./pages/suggestions.jsx";
+import Api from "./pages/api.jsx";
 
 
 //create your first component
@@ -34,7 +37,10 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" /> 
                         <Route element={<SignUp />} path="/signup" />  
                         <Route element={<Private />} path="/private" />
+                        <Route element={<Update />} path="/update/:postId" />
                         <Route element={<Inicio />} path="/inicio" />
+                        <Route element={<Api />} path="api" />
+                        <Route element={<Suggestions />} path="/suggestion" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />

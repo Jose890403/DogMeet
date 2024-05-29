@@ -34,7 +34,6 @@ class Post(db.Model):
             "id": self.id,
             "img": self.img,
             "bodytext": self.bodytext,
-            # do not serialize the password, its a security breach
         }
 
 class Comment (db.Model):
@@ -52,19 +51,16 @@ class Comment (db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Like (db.Model):
+
+class Suggestion (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    id_post = db.Column(db.Integer, db.ForeignKey('post.id'))
-    like = db.Column(db.Boolean(), unique=False, nullable=False)
-    user = db.relationship('User', backref='Like', lazy=True)
-    post = db.relationship('Post', backref='Like', lazy=True)
-
+    suggestion = db.Column(db.String)
+    user = db.relationship('User', backref='Suggestion', lazy=True)
     def serialize(self):
         return {
             "id": self.id,
-            "like": self.like,
+            "suggestion": self.suggestion,
             # do not serialize the password, its a security breach
         }
-
 
