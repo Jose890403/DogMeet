@@ -1,34 +1,85 @@
 .background img{
-    width: 100%;
-    height:70%;
-    object-fit:contain;
-}
-.container-xxl{
-    background-color: rgba(128, 128, 128, 0.322);
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    object-fit:unset;
     position: absolute;
-    top: 55%; 
-    left: 20%;
-    transform: translate(-50%, -50%) ;
-    text-align: center;
-    width:33%;
-    height: 66%;
-    border-radius: 5%;
+    z-index:-1;
 }
+.log-login{
+    width:25rem;
+    min-width: 12rem;
+    height: 22rem;
+    top:-10rem;
+    left:4rem;
+    transform: translate(-50% -50%);
+    position:relative;
+}
+
 .logtext{
-    color:white;
-    font-size: 60px;
+    color:rgb(221,159,38);
+    font-size: 4rem;
+    font-weight: 400;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: -1px 0 #727070ce, 0 1px #727070ce, 1px 0 #727070ce, 0 -1px #727070ce;
 }
 .redirect{
-color: rgb(25,135,84);
+    background-color: rgba(221, 160, 38, 0.651);
+    color: rgb(247, 244, 244);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 200px;
+    height: 3rem;
+    
 }
+
+.redirect:hover{
+    background-color: rgb(221,159,38);
+    color: rgb(255, 255, 255);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+}
+
+.form-log{
+    width:30%;
+    height: 72%;
+    position: absolute;
+    top:20%;
+    left:10%;
+    transform: translate(-50% -50%);
+    text-align: center;
+    border: solid 1px rgb(221,159,38);
+    border-radius: 5%;
+
+}
+
 .form-floating input{
     border-radius:5%;
     background-color:rgba(128, 128, 128, 0.322) ;
+    width:20rem;
+    margin-left:3rem;
+    
+    flex-wrap: wrap;
 }
 
 .form-floating label{
-    color:rgba(73, 72, 72, 0.712) ;
+    color:rgb(255, 255, 255) ;
+    margin-left:3rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.login{
+    border-color: rgb(221,159,38);
+    color: rgb(247, 244, 244);
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 150px;
+    height: 3rem;
+}
+.login:hover{
+    background: rgb(221,159,38);
+    color: rgb(255, 255, 255);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
 }
 
 .info-signup{
@@ -36,4 +87,19 @@ margin-top:20px;
 margin-bottom: 0px;
 padding:0px;
 color:white;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+@media (max-width: 768px) {
+
+    .log-login {
+  
+      display: none;
+  
+    }
+    .form-floating input{
+        
+        max-width: 8rem;
+    }
+  
+  }

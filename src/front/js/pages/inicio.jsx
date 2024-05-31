@@ -43,7 +43,7 @@ export const Inicio = () => {
 
                             <div className="header">
                                 <p className="post-BodyText">{post.bodytext}</p>
-                                <p>Like: <span>{counters[index] || 0}</span></p>
+                                <p className="counter">Like: <span>{counters[index] || 0}</span></p>
                             </div>
                             <hr />
                             <div className="imagen-post">
@@ -56,11 +56,11 @@ export const Inicio = () => {
                                     </svg>
                                 </button>
                                 <div className="botones">
-                                    <button className="btn btn-eliminar mb-3 boton" onClick={() => handleDelete(post.id)}>
+                                    <button className="btn btn-eliminar mb-3 botonDelete" onClick={() => handleDelete(post.id)}>
                                         <i className="bi bi-trash3"></i>Delete
                                     </button>
                                     
-                                        <button className="btn btn-modificar mb-3 boton-ini" onClick={() => handleUpdate(post.id)}>
+                                        <button className="btn btn-modificar mb-3 boton-update" onClick={() => handleUpdate(post.id)}>
                                             Update
                                         </button>
                                     

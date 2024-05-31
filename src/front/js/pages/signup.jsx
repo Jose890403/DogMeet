@@ -34,7 +34,6 @@ export const SignUp = () => {
 				<img src="https://images.pexels.com/photos/1074882/pexels-photo-1074882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Background-SignUp"/>
 			</div>
         
-			
             <div className="contenido">
                 <header>
                     <div className="headercontent">
@@ -86,7 +85,7 @@ export const SignUp = () => {
                     </div>
 
                     <div className="boton">
-                        <button className="btn btn-outline-success" type="submit">Sign Up</button>
+                        <button className="btn-signup btn-outline-success" type="submit">Sign Up</button>
                     </div>
                     
                 </form>

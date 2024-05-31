@@ -4,7 +4,8 @@
   position: relative;
   width: 100%;
   min-height: 100vh; 
-  background-color: #fff;
+  background: -webkit-linear-gradient(180deg, #000000,#636363,#c1c4bf);                         
+	background: linear-gradient(180deg, #000000,#636363,#c1c4bf);
   padding: 20px; 
 }
 
@@ -24,6 +25,7 @@
 .post-BodyText {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
+  color: #000000;
 }
 
 .header {
@@ -32,14 +34,41 @@
   align-items: center; 
 }
 
+/* ----------    ESTILOS DE LOS BOTONES DEL INICIO     ---------*/
+.botones{
+  display: flex;
+  margin-left:40%;
+  gap: 5px;
+  margin-bottom: 23px;
+  flex-wrap: nowrap;
+  
+}
+.boton-update {
+  background-color: rgb(221,159,38);
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px; 
+  margin-right: 10px; 
+}
+.botonDelete{
+  flex-wrap: nowrap;
+  background-color: rgb(221,159,38);
+  color: #fff; 
+  border: none; 
+  
+}
+
 .heart-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 10px;
+ 
+}
+.heart-button:hover{
+  background: none;
 }
 
 .heart-icon {
@@ -57,23 +86,9 @@
 .heart-button:focus {
   outline: none;
 }
-
-.boton-ini {
-  background-color: #c0392b;
-  width: auto;
-  color: #fff; 
-  border: none; 
-  padding: 10px 20px; 
-  margin-right: 10px; 
-  
-}
-.botones{
-  margin-left:35%;
-  margin-bottom: 23px;
-  flex-wrap: nowrap;
-  
-}
+/*-----------     TEXTO TIPO MECANOGRAFIA ----------*/
 .post-text {
+  color:rgb(221, 159, 38);
   display: block;
   text-align: center;
   margin-left: 33%;
@@ -98,3 +113,7 @@
   50% { border-color: transparent; }
 }
 
+/*------------ contador de likes----------*/
+.counter{
+  color:black;
+}

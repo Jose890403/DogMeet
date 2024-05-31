@@ -13,7 +13,7 @@ const Api = () => {
       }
   };
   return (
-    <div className="container">
+    <div className="api-container">
       <h1>Breed of dogs </h1>
       <p>See photos of other breeds</p>
       <select onChange={e => setSelectedBreed(e.target.value)} value={selectedBreed}>
@@ -24,10 +24,10 @@ const Api = () => {
           </option>
         ))}
       </select>
-      <button onClick={handleFetchRandomImage}>Get Random Image</button>
+      <button onClick={handleFetchRandomImage} className="btn-primary">Get Random Image</button>
       <div>
         {store.randomDogImage && (
-          <img src={store.randomDogImage} alt="Imagen Aleatoria de Perro" style={{ width: '300px', height: 'auto' }} />
+          <img src={store.randomDogImage} alt="Imagen Aleatoria de Perro" />
         )}
       </div>
     </div>
