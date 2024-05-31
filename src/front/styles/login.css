@@ -2,9 +2,10 @@
     width: 100vw;
     margin: 0px;
     padding: 0px;
-    object-fit:unset;
+    object-fit:cover;
     position: absolute;
     z-index:-1;
+    overflow: hidden; 
 }
 .log-login{
     width:25rem;
@@ -44,7 +45,7 @@
     height: 72%;
     position: absolute;
     top:20%;
-    left:10%;
+    left:20%;
     transform: translate(-50% -50%);
     text-align: center;
     border: solid 1px rgb(221,159,38);

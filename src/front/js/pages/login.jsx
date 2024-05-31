@@ -28,7 +28,7 @@ export const Login = () => {
 	}, [store.isLoggedIn])
 
 	return (
-		<>
+		<div>
 			<div className="background">
 				<img src="https://images.pexels.com/photos/247522/pexels-photo-247522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  alt="background-form" />
 			</div>
@@ -70,7 +70,7 @@ export const Login = () => {
 				</div>
 
 			</form>
-		</>
+		</div>
 
 
 	);
