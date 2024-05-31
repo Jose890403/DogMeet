@@ -1,8 +1,11 @@
 .content {
 	display: flex;
+	padding-top:12px;
 	justify-content: center;
 	align-items: center;
-	background-color: #f0f0f0;
+	background: -webkit-linear-gradient(180deg, #000000,#636363,#c1c4bf);                         
+	background: linear-gradient(180deg, #000000,#636363,#c1c4bf);
+	                                           
 }
 
 .form-container {
@@ -60,17 +63,19 @@
 .submit-button {
 	width: 50%;
 	padding: 10px;
-	background-color: #020202;
+	background-color: rgb(221,159,38);
 	border: none;
 	border-radius: 4px;
-	color: white;
+	color:black;
 	font-size: 16px;
 	cursor: pointer;
     margin-left: 25%;
 }
 
 .submit-button:hover {
-	background-color: #141414;
+	background-color: rgb(221,159,38);
+	color: white;
+	
 }
 .spinner {
     width: 50px;

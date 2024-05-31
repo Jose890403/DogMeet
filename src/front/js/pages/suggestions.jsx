@@ -17,27 +17,27 @@ const Suggestions = () => {
         setSuggestionText("");
     };
     return (
-        <div className="container suggestions-container">
+        <div className="suggestions-container">
             <h1>Suggestions from Users</h1>
-            <ul className="list-group suggestions-list">
+            <ul className=" suggestions-list">
                 {store.suggestions?.map((suggestion, index) => (
                     <li key={index} className="list-group-item suggestion-item">
                         {suggestion.suggestion}
                     </li>
                 ))}
             </ul>
-            <form onSubmit={handleSubmit} className="mt-4">
-                <div className="form-group">
+            <form onSubmit={handleSubmit} className="mb-5">
+                <div className="form-suggestion">
                     <label htmlFor="suggestion">New Suggestion:</label>
-                    <textarea
-                        className="form-control"
+                    <input type= "textarea"
+                        className="textarea"
                         id="suggestion"
                         rows="3"
                         value={suggestionText}
                         onChange={(e) => setSuggestionText(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary mt-2">
+                <button type="submit" className= "btn-primary">
                     Add Suggestion
                 </button>
             </form>

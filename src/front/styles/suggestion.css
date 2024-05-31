@@ -1,54 +1,66 @@
 .suggestions-container {
-    max-width: 600px;
-    margin: 40px auto; /* Agregado margen para separar el cuadro del fondo */
+    width: 100%;
+    height: 100vh; 
     padding: 20px;
-    background-color: #F9F9F9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: -webkit-linear-gradient(180deg, #000000,#636363,#c1c4bf);                         
+	background: linear-gradient(180deg, #000000,#636363,#c1c4bf);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .suggestions-container h1 {
     text-align: center;
-    color: #333;
+    color: rgb(221, 159, 38);
     margin-bottom: 20px;
 }
 .suggestions-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 80%;
 }
 .suggestion-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #FFFFFF;
+    border: 2.5px solid rgb(221, 159, 38);
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
 }
 .suggestion-item:hover {
-    background-color: #F1F1F1;
+    background-color: #111;
 }
-.form-group {
+.form-suggestion {
     margin-bottom: 20px;
-}
-.form-group label {
-    font-weight: bold;
-    color: #555;
-}
-.form-control {
     width: 100%;
+}
+.form-suggestion label {
+    font-weight: bold;
+    color: rgb(221, 159, 38);
+}
+.textarea {
+    width: 100%;
+    height: 100px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2.5px solid rgb(221, 159, 38); /* Bordes más finos para mayor armonía */
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #FFFFFF; /* Fondo negro para la consistencia */
+    color: #000000;
 }
 .btn-primary {
-    background-color: #007BFF;
-    border-color: #007BFF;
-    transition: background-color 0.3s ease;
+    background-color: transparent;
+    color: rgb(221, 159, 38);
+    border: 2px solid rgb(221, 159, 38);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .btn-primary:hover {
-    background-color: #0056B3;
-    border-color: #0056B3;
+    background-color: rgb(221, 159, 38);
+    border-color: rgb(221, 159, 38);
+    color: #000;
 }
-
 

@@ -61,7 +61,9 @@ export const Private = () => {
                         />
                     </label>
                 </div>
-                <button type="submit" className="submit-button">Enviar</button>
+                <button type="submit" className="submit-button">
+                <i className="fas fa-dog"></i> Create Post
+                    </button>
                 <div className="spinner" style={{opacity: variableOpacidad}}></div>
             </form>
         </div>

@@ -1,0 +1,84 @@
+.nav {
+    background-color: #000000;
+    max-width: 100%;
+    height: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-bottom: .1px solid white;
+}
+
+/*-------- ESTILOS DE LOS BOTONES---------*/
+
+.botonesNav{
+    padding-top: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    justify-content: end;
+}
+.logout1 {
+    color: rgba(221, 160, 38, 0.986);
+    border: none;
+    padding: 10px;
+}
+.logout1:hover{
+    background: none;
+    text-decoration: underline  rgb(221,159,38) ;
+    text-underline-offset: 5px;
+    color: rgba(221, 160, 38, 0.986);
+   
+}
+.btnPost {
+    color: white;
+    border: none;
+    padding: 10px; 
+}
+
+.btnPost:hover{
+    background: none;
+    text-decoration: underline  rgb(221,159,38);
+    color: white;
+    text-underline-offset: 5px;
+}
+
+.suggestion {
+    color: white;
+    border: none;
+    padding: 10px;
+   
+}
+.suggestion:hover{
+    background: none;
+    text-decoration: underline  rgb(221,159,38);
+    color: white;
+    text-underline-offset: 5px;
+}
+
+.api {
+    color: white;
+    border: none;
+    padding: 10px;
+}
+.api:hover{
+    background: none;
+    text-decoration: underline  rgb(221,159,38);
+    color: white;
+    text-underline-offset: 5px;
+}
+
+/*-------    estilo del logo -------*/
+.logoNav{
+    position: absolute;
+    text-align: start;
+    z-index: 1;
+    top: -20px;
+    width: 5rem;
+    height: 4rem;
+}
+@media (max-width: 768px) {
+
+    .logoNav {
+  
+      display: none;
+  
+    }
+}
